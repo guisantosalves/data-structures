@@ -59,6 +59,10 @@ public class Lista {
         }
     }
     
+    public void clear(){
+        inicio = null;
+    }
+    
     public static void main(String[] args){
        Lista list = new Lista();
        list.add(0);
