@@ -78,8 +78,40 @@ public class newLinkedList {
         return temp;
     }
 
+    public Node removeFirst(){
+        if(length == 0){
+            return null;
+        }else{
+            // get the first reference
+            Node temp = head;
+            
+            // head goes to the next node
+            head = head.next;
+            
+            // temp removes the first from liked list
+            temp.next = null;
+            length--;
+            if(length == 0){
+                // because if the LL has only one item
+                tail = null;
+            }
+            return temp;
+        }
+    }
+
     // create new node and add to beginning
     public void prepend(int value) {
+        Node newNode = new Node(value);
+        if(length == 0){
+            head = newNode;
+            tail = newNode;
+        }else{
+            // new node receive the node that head is pointing
+            newNode.next = head;
+            // head is now pointing to the node created
+            head = newNode;
+        }
+        length++;
     }
 
     // create node and insert in particular index
@@ -94,6 +126,10 @@ public class newLinkedList {
         myLK.append(6);
         myLK.printList();
         myLK.removeLast();
+        myLK.prepend(8);
+        System.out.println("\n-----------\n");
+        myLK.printList();
+        myLK.removeFirst();
         System.out.println("\n-----------\n");
         myLK.printList();
     }
